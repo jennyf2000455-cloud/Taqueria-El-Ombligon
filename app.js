@@ -15,13 +15,13 @@ const CONFIG = {
     telefono: "956-382-9979",
     whatsapp: "19563829979",
     horarios: {
-      Lunes: "11:30 AM – 9:00 PM",
-      Martes: "11:30 AM – 9:00 PM",
-      "Miércoles": "11:30 AM – 9:00 PM",
-      Jueves: "11:30 AM – 9:00 PM",
-      Viernes: "11:30 AM – 9:00 PM",
-      Sábado: "11:30 AM – 9:00 PM",
-      Domingo: "11:30 AM – 9:00 PM",
+      Lunes: "6:00 PM – 11:00 PM",
+      Martes: "6:00 PM – 11:00 PM",
+      "Miércoles": "6:00 PM – 11:00 PM",
+      Jueves: "6:00 PM – 11:00 PM",
+      Viernes: "6:00 PM – 11:00 PM",
+      Sábado: "6:00 PM – 11:00 PM",
+      Domingo: "6:00 PM – 11:00 PM",
     },
   },
   menu: [
@@ -111,7 +111,6 @@ const historiaContent = document.getElementById("historia-content");
 const datosContent = document.getElementById("datos-content");
 const menuContent = document.getElementById("menu-content");
 const menuNotes = document.getElementById("menu-notes");
-const accionesContent = document.getElementById("acciones-content");
 const footerContent = document.getElementById("footer-content");
 
 const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -243,36 +242,6 @@ const renderMenu = () => {
   menuNotes.textContent = CONFIG.menuNotes.join(" ");
 };
 
-const renderAcciones = () => {
-  const whatsappCard = document.createElement("div");
-  whatsappCard.className = "card action-card";
-  whatsappCard.innerHTML = `
-    <h3>Ordena al instante</h3>
-    <p>Escríbenos por WhatsApp y preparamos tu pedido en minutos.</p>
-  `;
-  whatsappCard.appendChild(
-    createButton("Ordenar por WhatsApp", whatsappLink, "primary")
-  );
-  accionesContent.appendChild(whatsappCard);
-
-  if (CONFIG.assets.qr) {
-    const qrCard = document.createElement("div");
-    qrCard.className = "card action-card";
-    qrCard.innerHTML = `
-      <h3>Escanea el QR</h3>
-      <p>Accede rápido al menú y promociones desde tu celular.</p>
-    `;
-    const img = document.createElement("img");
-    img.src = CONFIG.assets.qr;
-    img.alt = "QR Taquería El Ombligón";
-    img.onerror = () => {
-      qrCard.remove();
-    };
-    qrCard.appendChild(img);
-    accionesContent.appendChild(qrCard);
-  }
-};
-
 const renderFooter = () => {
   const wrapper = document.createElement("div");
   wrapper.className = "footer-content";
@@ -288,5 +257,4 @@ renderHero();
 renderHistoria();
 renderDatos();
 renderMenu();
-renderAcciones();
 renderFooter();
