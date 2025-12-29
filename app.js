@@ -165,7 +165,6 @@ const renderDatos = () => {
     { title: "Dirección", content: CONFIG.datos.direccion },
     { title: "Ciudad", content: CONFIG.datos.ciudadEstado },
     { title: "Teléfono", content: CONFIG.datos.telefono },
-    { title: "WhatsApp", content: CONFIG.datos.whatsapp },
   ];
 
   cards.forEach((card) => {
