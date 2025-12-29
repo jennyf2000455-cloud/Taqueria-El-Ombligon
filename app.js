@@ -117,10 +117,6 @@ const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComp
   `${CONFIG.datos.direccion}, ${CONFIG.datos.ciudadEstado}`
 )}`;
 
-const whatsappLink = `https://wa.me/${CONFIG.datos.whatsapp}?text=${encodeURIComponent(
-  `Hola, quiero ordenar en ${CONFIG.restaurant.name}`
-)}`;
-
 const createButton = (label, href, variant = "primary") => {
   const button = document.createElement("a");
   button.className = `button ${variant}`;
@@ -136,10 +132,7 @@ const renderHero = () => {
   document.title = CONFIG.restaurant.name;
   heroTitle.textContent = CONFIG.restaurant.name;
   heroSubtitle.textContent = CONFIG.restaurant.subtitle;
-  heroActions.append(
-    createButton("Ordenar por WhatsApp", whatsappLink, "primary"),
-    createButton("Ver ubicación", mapLink, "secondary")
-  );
+  heroActions.append(createButton("Ver ubicación", mapLink, "secondary"));
 
   if (CONFIG.heroUseCover && CONFIG.assets.cover) {
     hero.style.backgroundImage = `url(${CONFIG.assets.cover})`;
